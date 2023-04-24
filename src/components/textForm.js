@@ -7,10 +7,10 @@ export default function TextForm(props) {
 
   const [btn1, setbtn1] = useState("Convert to Uppercase");
   const [btn2, setbtn2] = useState("Make Bold");
-  const [btn3, setbtn3] = useState("Change Color");
-  const [clr, setclr] = useState({
-    color: "black",
-  })
+  // const [btn3, setbtn3] = useState("Change Color");
+  // const [clr, setclr] = useState({
+  //   color: "black",
+  // })
 
   const handleUpClick = () => {
     if (btn1 === "Convert to Uppercase") {
@@ -48,22 +48,22 @@ export default function TextForm(props) {
     }
   }
 
-  const handleColor = () => {
-    if (btn3 === "Change Color") {
-      setclr({
-        color: "red",
-      })
-      setbtn3("Remove Color")
-      props.showAlert("Changing color succesfully", "success")
-    }
-    else {
-      setclr({
-        color: "black",
-      })
-      setbtn3("Change Color")
-      props.showAlert("Removing color succesfully", "success")
-    }
-  }
+  // const handleColor = () => {
+  //   if (btn3 === "Change Color") {
+  //     setclr({
+  //       color: "red",
+  //     })
+  //     setbtn3("Remove Color")
+  //     props.showAlert("Changing color succesfully", "success")
+  //   }
+  //   else {
+  //     setclr({
+  //       color: "black",
+  //     })
+  //     setbtn3("Change Color")
+  //     props.showAlert("Removing color succesfully", "success")
+  //   }
+  // }
 
   const handleCopy = () => {
     let text = document.querySelector("#myBox");
@@ -84,11 +84,11 @@ export default function TextForm(props) {
       <div className='container' style={{ color: props.mode === "dark" ? "white" : "black" }}>
         <h1 className='mt-2'>{props.heading}</h1>
         <div className="mt-3">
-          <textarea className='form-control' placeholder='Enter your text' style={{ clr, backgroundColor: props.mode === "light" ? "white" : "#001029", color: props.mode === "light" ? "black" : "white" }} value={text} onChange={handleOnChange} id='myBox' rows="8"></textarea>
+          <textarea className='form-control' placeholder='Enter your text' style={{ backgroundColor: props.mode === "light" ? "white" : "#001029", color: props.mode === "light" ? "black" : "white" }} value={text} onChange={handleOnChange} id='myBox' rows="8"></textarea>
         </div>
         <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleUpClick}>{btn1}</button>
         <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleBold}>{btn2}</button>
-        <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleColor}>{btn3}</button>
+        {/* <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleColor}>{btn3}</button> */}
         <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleCopy}>Copy text</button>
         <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleExtraSpaces}>Remove Extra space</button>
         <button disabled={text.length === 0} className='btn btn-primary mt-3 mx-2' onClick={handleClear}>Clear Box</button>
